@@ -479,9 +479,11 @@ public class CapEnv {
 		}
 		if(address==null){
 			MLog.println("域名解析失败,请检查DNS设置!");
+			testIp_tcp = "127.0.0.1";
+		} else {
+			testIp_tcp=address.getHostAddress();
 		}
 		final int por=80;
-		testIp_tcp=address.getHostAddress();
 		for(int i=0;i<5;i++){
 			try {
 				Route.es.execute(new Runnable() {
